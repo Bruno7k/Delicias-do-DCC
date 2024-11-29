@@ -7,7 +7,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.hashers import make_password
-
 @api_view(['GET'])
 def apiOverview(request):
     api_urls = {
