@@ -74,19 +74,18 @@ def cadastro(request):
     data = request.data.copy()
 
 
-    '''
-    com criptografia
-    Hash da senha
+
+  
+    #Hash da senha
     senha = data.get('senha')
     if senha:
         hashed_senha = make_password(senha)
         data['senha'] = hashed_senha  # Atualiza a senha com o hash
 
-    Usar o serializador com a cópia de dados modificada
+    #Usar o serializador com a cópia de dados modificada
     serializer = UsuarioSerializer(data=data)
-    '''
-    # Sem criptografia
-    serializer = UsuarioSerializer(data=data)
+ 
+
     
     if serializer.is_valid():
         serializer.save()
@@ -114,13 +113,8 @@ def login(request):
     except Usuario.DoesNotExist:
         return HttpResponse('Nome ou senha incorretos')
 
-    """
-    com criptografia
-    if check_password(senha, usuario.senha):
-    """
 
-    # sem criptografia
-    if usuario.senha == senha:
+    if check_password(senha, usuario.senha):
         return HttpResponse(f'Autenticado com sucesso: {usuario.email}')
     else:
         return HttpResponse('Nome ou senha incorretos')
