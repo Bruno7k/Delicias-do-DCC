@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+.Componente-foto {
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: auto; 
+  width: 100%;
+}
+
+.banner {
+  max-width: 1312px; 
+  height: auto;
+  width: 100%;
+  max-height: 545px;
+  min-height: 305px;
+  object-fit: cover; 
+  border-radius: 8px; 
+}
+.linha{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: auto;
+  width: 427px;
+}
+.Componente-texto {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  color:#F0EBE1; 
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+.titulo {
+  font-size: 55px;
+  font-family: "Montserrat", serif;
+  font-weight:bolder;
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+.subtitulo {
+  font-size: 20px;
+  font-family: "Roboto", serif;
+
+}
+
+.botao-receita {
+  padding: 10px 20px;
+  background-color: #F29C33; 
+  color: black;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.botao-receita:hover {
+  background-color: #FF6653; 
+  transition: ease-in-out 0.3s;
+}
+@media (max-width: 1024px) {
+  .titulo {
+    font-size: 30px;
+  }
+  
+  .subtitulo {
+    font-size: 15px;
+  }
+  .linha{
+    width: 300px;
+  }
+  
+  .botao-receita {
+    font-size: 12px;
+  }
+}
