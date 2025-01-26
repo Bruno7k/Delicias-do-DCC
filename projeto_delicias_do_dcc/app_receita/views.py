@@ -48,3 +48,10 @@ def receitaDelete(request, pk):
     receita = get_object_or_404(Receita, id=pk)  # Usando get_object_or_404
     receita.delete()
     return Response({'message': 'Item deletado com sucesso'}, status=status.HTTP_204_NO_CONTENT)  # Retorna 204 No Content após a exclusão
+
+# Gerar 6 receitas aleatórias
+@api_view(['GET'])
+def receitaRandom(request):
+    receitas = Receita.objects.order_by('?')[:6]  # Seleciona 6 receitas aleatórias
+    serializer = ReceitaSerializer(receitas, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)

@@ -9,4 +9,5 @@ urlpatterns = [
     path('receita/create', views.receitaCreate, name='receita-create'),
     path('receita/update/<int:pk>', views.receitaUpdate, name='receita-update'),
     path('receita/delete/<int:pk>', views.receitaDelete, name='receita-delete'),
+    path('receita/random', views.receitaRandom, name='receita-random'),
 ]
