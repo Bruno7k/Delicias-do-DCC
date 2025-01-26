@@ -1,14 +1,14 @@
-import './navBar.css';
-import React, { useState, useRef, useEffect } from 'react';
-import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu'; 
-import CloseIcon from '@mui/icons-material/Close'; 
-import Logo from '../../assets/logoDCC.png';
+import "./navBar.css";
+import React, { useState, useRef, useEffect } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import Logo from "../../assets/logoDCC.png";
 
 function NavBar() {
-  const [searchVisible, setSearchVisible] = useState(false); 
-  const [menuOpen, setMenuOpen] = useState(false); 
-  const [menuClosing, setMenuClosing] = useState(false); 
+  const [searchVisible, setSearchVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuClosing, setMenuClosing] = useState(false);
   const searchRef = useRef(null);
 
   const toggleSearch = () => {
@@ -17,14 +17,13 @@ function NavBar() {
 
   const toggleMenu = () => {
     if (menuOpen) {
-  
       setMenuClosing(true);
       setTimeout(() => {
         setMenuOpen(false);
         setMenuClosing(false);
-      }, 300); 
+      }, 300);
     } else {
-      setMenuOpen(true); 
+      setMenuOpen(true);
     }
   };
 
@@ -35,9 +34,9 @@ function NavBar() {
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -48,28 +47,45 @@ function NavBar() {
       </div>
 
       <div
-        className={`hamburguer ${menuOpen ? 'ativo' : ''} ${menuClosing ? 'fechar' : ''}`}
+        className={`hamburguer ${menuOpen ? "ativo" : ""} ${
+          menuClosing ? "fechar" : ""
+        }`}
         onClick={toggleMenu}
       >
-        {menuOpen ? <CloseIcon className="icone-fechar" /> : <MenuIcon className="icone-hamburguer" />}
+        {menuOpen ? (
+          <CloseIcon className="icone-fechar" />
+        ) : (
+          <MenuIcon className="icone-hamburguer" />
+        )}
       </div>
 
       <div
-        className={`texto-Nav ${menuOpen ? 'visivel' : ''} ${menuClosing ? 'fechar' : ''}`}
+        className={`texto-Nav ${menuOpen ? "visivel" : ""} ${
+          menuClosing ? "fechar" : ""
+        }`}
       >
-        <a href="/home" className={window.location.pathname === '/home' ? 'ativo' : ''}>
+        <a
+          href="/home"
+          className={window.location.pathname === "/home" ? "ativo" : ""}
+        >
           HOME
         </a>
-        <a href="/receitas" className={window.location.pathname === '/receitas' ? 'ativo' : ''}>
+        <a
+          href="/receitas"
+          className={window.location.pathname === "/receitas" ? "ativo" : ""}
+        >
           RECEITAS
         </a>
-        <a href="/favoritos" className={window.location.pathname === '/favoritos' ? 'ativo' : ''}>
+        <a
+          href="/favoritos"
+          className={window.location.pathname === "/favoritos" ? "ativo" : ""}
+        >
           MEUS FAVORITOS
         </a>
       </div>
 
       <div
-        className={`procura-nav ${searchVisible ? 'expandido' : ''}`}
+        className={`procura-nav ${searchVisible ? "expandido" : ""}`}
         ref={searchRef}
         onClick={toggleSearch}
       >
@@ -77,7 +93,7 @@ function NavBar() {
         {searchVisible && (
           <input
             type="text"
-            className={`campo-pesquisa ${searchVisible ? 'visivel' : ''}`}
+            className={`campo-pesquisa ${searchVisible ? "visivel" : ""}`}
             placeholder="Pesquisar receitas..."
             onClick={(e) => e.stopPropagation()}
           />

@@ -1,274 +1,272 @@
 .Componente-navBar {
-	display: flex;
-	position: sticky;
-	justify-content: space-between;
-	align-items: center;
-	text-align: center;
-	top: 20px;
-	z-index: 5;
-	height: 70px;
-	width: 100%;
-	max-width: 1312px;
-	background-color: #f0ebe1;
-	border-radius: 50px;
-	margin-top: 20px;
-	padding-left: 15px;
-	padding-right: 15px;
-	border: #2625223d solid 2px;
-  }
-  
-  .imagem-Nav {
-	height: 45px;
-	width: 140px;
-  }
-  
-  .logo {
-	height: 100%;
-	width: 100%;
-  }
-  
-  .texto-Nav {
-	display: flex;
-	align-items: center;
-	justify-content: space-evenly;
-	height: 30px;
-	width: 100%;
-	max-width: 422px;
-	opacity: 1;
-	transform: translateY(0);
-  }
-  
-  .texto-Nav.escondido {
-	opacity: 0;
-	transform: translateY(-10px);
-	transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  
-  .texto-Nav a {
-	text-decoration: none;
-	color: #a9a9a9;
-	font-size: 17px;
-	font-family: "Roboto", serif;
-	margin: 0px 10px;
-	text-transform: uppercase;
-	position: relative;
-	transition: color 0.3s ease;
-  }
-  
-  .texto-Nav a.ativo {
-	color: #262522;
-	font-weight: 500;
-  }
-  
-  .texto-Nav a.ativo::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: -2px;
-	width: 100%;
-	height: 2px;
-	background-color: #ff6653;
-	animation: underlineGrow 0.3s ease-out;
-  }
-  
-  .texto-Nav a:hover {
-	color: #262522;
-  }
-  
-  .texto-Nav a:hover::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	bottom: -2px;
-	width: 100%;
-	height: 2px;
-	background-color: #ff6653;
-	animation: underlineGrow 0.3s ease-out;
-  }
-  
-  .procura-nav {
-	color: black;
-	background-color: #e0dbd2;
-	width: 40px;
-	height: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-right: 10px;
-	border-radius: 50%;
-	cursor: pointer;
-	transition: width 0.3s ease, background-color 0.3s ease;
-	overflow: hidden;
-  }
-  
-  .procura-nav.expandido {
-	width: 200px;
-	background-color: #e0dbd2;
-	border-radius: 30px;
-  }
-  
-  .campo-pesquisa {
-	display: none;
-	border: none;
-	background: transparent;
-	outline: none;
-	font-size: 16px;
-	font-family: "Roboto", serif;
-	color: #262522;
-	margin-left: 10px;
-	width: 100%;
-  }
-  
-  .campo-pesquisa.visivel {
-	display: block;
-  }
-  
-  .procura-nav .icone-lupa {
-	transition: opacity 0.3s ease;
-  }
-  
-  .procura-nav.expandido .icone-lupa {
-	opacity: 0;
-  }
-  
+  display: flex;
+  position: sticky;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  top: 20px;
+  z-index: 5;
+  height: 70px;
+  width: 100%;
+  max-width: 1312px;
+  background-color: #f0ebe1;
+  border-radius: 50px;
+  margin-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: #2625223d solid 2px;
+}
+
+.imagem-Nav {
+  height: 45px;
+  width: 140px;
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
+}
+
+.texto-Nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 30px;
+  width: 100%;
+  max-width: 422px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.texto-Nav.escondido {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.texto-Nav a {
+  text-decoration: none;
+  color: #a9a9a9;
+  font-size: 17px;
+  font-family: "Roboto", serif;
+  margin: 0px 10px;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.texto-Nav a.ativo {
+  color: #262522;
+  font-weight: 500;
+}
+
+.texto-Nav a.ativo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #ff6653;
+  animation: underlineGrow 0.3s ease-out;
+}
+
+.texto-Nav a:hover {
+  color: #262522;
+}
+
+.texto-Nav a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #ff6653;
+  animation: underlineGrow 0.3s ease-out;
+}
+
+.procura-nav {
+  color: black;
+  background-color: #e0dbd2;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: width 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.procura-nav.expandido {
+  width: 200px;
+  background-color: #e0dbd2;
+  border-radius: 30px;
+}
+
+.campo-pesquisa {
+  display: none;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 16px;
+  font-family: "Roboto", serif;
+  color: #262522;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.campo-pesquisa.visivel {
+  display: block;
+}
+
+.procura-nav .icone-lupa {
+  transition: opacity 0.3s ease;
+}
+
+.procura-nav.expandido .icone-lupa {
+  opacity: 0;
+}
 
 .hamburguer {
-	display: none; 
-	cursor: pointer;
-	font-size: 24px;
-	color: #262522;
-	transition: transform 0.3s ease, opacity 0.3s ease;
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #262522;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburguer.ativo {
+  transform: rotate(90deg);
+}
+
+.hamburguer .icone-hamburguer,
+.hamburguer .icone-fechar {
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hamburguer .icone-hamburguer {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.hamburguer.ativo .icone-hamburguer {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.hamburguer .icone-fechar {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.hamburguer.ativo .icone-fechar {
+  opacity: 1;
+  transform: rotate(0deg);
+  animation: fadeInRotate 0.3s ease-out;
+}
+
+.hamburguer.fechar .icone-fechar {
+  animation: fadeOutRotate 0.3s ease-out;
+}
+
+.texto-Nav.visivel {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 88px;
+  right: 2px;
+  background-color: #f0ebe1;
+  height: 160px;
+  width: 198px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 10px 20px;
+  gap: 10px;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: menuSlideDown 0.3s forwards;
+}
+
+.texto-Nav.fechar {
+  display: flex;
+  animation: menuSlideUp 0.3s forwards;
+}
+
+@keyframes menuSlideDown {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
-  .hamburguer.ativo {
-	transform: rotate(90deg);
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .hamburguer .icone-hamburguer,
-  .hamburguer .icone-fechar {
-	position: absolute;
-	transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@keyframes menuSlideUp {
+  from {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .hamburguer .icone-hamburguer {
-	opacity: 1;
-	transform: rotate(0deg);
+  to {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
-  .hamburguer.ativo .icone-hamburguer {
-	opacity: 0;
-	transform: rotate(90deg);
-  }
-  
-  .hamburguer .icone-fechar {
-	opacity: 0;
-	transform: rotate(90deg);
-  }
-  
-  .hamburguer.ativo .icone-fechar {
-	opacity: 1;
-	transform: rotate(0deg);
-	animation: fadeInRotate 0.3s ease-out; 
-  }
-  
-  .hamburguer.fechar .icone-fechar {
-	animation: fadeOutRotate 0.3s ease-out;
-  }
-  
-  .texto-Nav.visivel {
-	display: flex;
-	flex-direction: column;
-	position: absolute;
-	top: 88px;
-	right: 2px;
-	background-color: #f0ebe1;
-	height: 160px;
-	width: 198px;
-	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-	border-radius: 10px;
-	padding: 10px 20px;
-	gap: 10px;
-	opacity: 0;
-	transform: scale(0.9);
-	animation: menuSlideDown 0.3s forwards;
-  }
-  
-  .texto-Nav.fechar {
-	display: flex;
-	animation: menuSlideUp 0.3s forwards;
-  }
-  
-  @keyframes menuSlideDown {
-	from {
-	  opacity: 0;
-	  transform: scale(0.9);
-	}
-	to {
-	  opacity: 1;
-	  transform: scale(1);
-	}
-  }
-  
-  @keyframes menuSlideUp {
-	from {
-	  opacity: 1;
-	  transform: scale(1);
-	}
-	to {
-	  opacity: 0;
-	  transform: scale(0.9);
-	}
-  }
-  
+}
+
 @keyframes fadeInRotate {
-	from {
-	  opacity: 0;
-	  transform: rotate(90deg);
-	}
-	to {
-	  opacity: 1;
-	  transform: rotate(0deg);
-	}
+  from {
+    opacity: 0;
+    transform: rotate(90deg);
   }
-  
-  @keyframes fadeOutRotate {
-	from {
-	  opacity: 1;
-	  transform: rotate(0deg);
-	}
-	to {
-	  opacity: 0;
-	  transform: rotate(90deg);
-	}
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
   }
-  
-  @keyframes underlineGrow {
-	from {
-	  width: 0%;
-	}
-	to {
-	  width: 100%;
-	}
+}
+
+@keyframes fadeOutRotate {
+  from {
+    opacity: 1;
+    transform: rotate(0deg);
   }
-  
-  @media (max-width: 768px) {
-	.hamburguer {
-	  display: flex;
-	  background-color: #e0dbd2;
-	  width: 40px;
-	  height: 40px;
-	  justify-content: center;
-	  align-items: center;
-	  border-radius: 50%;
-	  transition: opacity 0.3s ease;
-	}
-  
-	.texto-Nav {
-	  display: none;
-	}
-  
-	.procura-nav {
-	  display: none;
-	}
+  to {
+    opacity: 0;
+    transform: rotate(90deg);
   }
-  
+}
+
+@keyframes underlineGrow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburguer {
+    display: flex;
+    background-color: #e0dbd2;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: opacity 0.3s ease;
+  }
+
+  .texto-Nav {
+    display: none;
+  }
+
+  .procura-nav {
+    display: none;
+  }
+}
