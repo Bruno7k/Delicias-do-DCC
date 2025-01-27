@@ -30,6 +30,7 @@ function MultipleItems() {
         const response = await fetch("http://127.0.0.1:8000/receita/random");  // URL do backend
         const data = await response.json();
         const recipesData = data.map(recipe => ({
+          id: recipe.id,            // Pega o campo id
           image: recipe.url_imagem,  // Pega o campo url_imagem
           title: recipe.titulo,      // Pega o campo titulo
           description: recipe.descricao,  // Pega o campo descricao
@@ -68,6 +69,7 @@ function MultipleItems() {
           {recipes.slice(0, 6).map((item, index) => (
             <div className="card-container" key={index}>
               <CardComponent
+                id = {item.id}
                 image={item.image}
                 title={item.title}
                 description={item.description}

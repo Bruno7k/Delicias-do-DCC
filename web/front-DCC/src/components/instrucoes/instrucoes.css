@@ -1,0 +1,158 @@
+.instrucoes-receitas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.introducao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    gap:30px;
+    h1{
+        color:#262522;
+        font-family: Montserrat;
+        font-size: 80px;
+        font-weight: 800;
+        line-height: 80px;
+        letter-spacing: -0.01em;
+        text-align: center;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        text-transform: uppercase;
+    }
+    
+    
+}
+.instrucoes-conteudo{
+    padding-top: 30px;
+    width: 100%;
+    max-width: 1312px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 32px;
+    border: #2625223d solid 2px;
+    gap:30px;
+}
+.passos{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    word-wrap: break-word;
+}
+.passo-instrucao{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    margin-bottom: 30px;
+    h2{
+        font-family: Montserrat;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 40px;
+        letter-spacing: 0.01em;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color:#333333
+    }
+    p{
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 22.4px;
+        letter-spacing: 0.01em;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color: #333333CC;
+    }
+    h3{
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 18px;
+        letter-spacing: 0.02em;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color:#EE6352;
+    }
+}
+.p-cima{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EE6352;
+    height: 34px;
+    width: 114px;
+    border-radius: 50px;
+    font-family: "Roboto", serif;
+    font-size: 18px;
+}
+.p-baixo{
+    font-family: Roboto;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 29.4px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color:#26252299;
+}
+.passo-ingrediente{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        font-family: Montserrat;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 18px;
+        letter-spacing: 0.02em;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color:#EE6352
+    }
+    li{
+        font-family: Roboto;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 29.4px;
+        letter-spacing: 0.01em;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        color:#262522;
+        margin-left: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .passos{
+        flex-direction: column-reverse;
+        gap:30px;
+    }
+    .passo-instrucao{
+        width: 100%;
+    }
+    .passo-ingrediente{
+        width: 100%;
+    }
+}
+@media (max-width: 450px) {
+    .introducao{
+        h1{
+            font-size: 40px;
+            line-height: 40px;
+        }
+    }
+}

@@ -6,8 +6,22 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardActions from "@mui/material/CardActions";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export default function cardComponent({ image, title, description, width }) {
+export default function cardComponent({id, image, title, description, width }) {
+	const navigate = useNavigate();
+	const handleClick = async (receitaId) => {
+		try {
+			const response = await axios.get(
+				`http://127.0.0.1:8000/receita/detail/${receitaId}`
+			);
+			const product = response.data;
+			navigate(`/receitas/${receitaId}`, { state: { product : product } });
+		} catch (error) {
+			console.error(error);
+		}
+	};
 	return (
 		<Card
 			sx={{
@@ -61,7 +75,8 @@ export default function cardComponent({ image, title, description, width }) {
 					}}
 					size="small"
 					color="primary"
-					variant="outlined">
+					variant="outlined"
+					onClick={() => handleClick(id)}>
 					CONFIRA
 				</Button>
 			</CardActions>

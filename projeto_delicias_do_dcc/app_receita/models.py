@@ -5,6 +5,9 @@ class Receita(models.Model):
     titulo = models.CharField(max_length=100)
     descricao = models.TextField()
     url_imagem = models.TextField()
+    ingredientes = models.TextField()
+    modo_preparo = models.TextField()
+    instucoes = models.TextField()
     usuario = models.ForeignKey('app_usuario.Usuario', on_delete=models.CASCADE, related_name="receitas")
 
     def __str__(self):
