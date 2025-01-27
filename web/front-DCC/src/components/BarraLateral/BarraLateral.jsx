@@ -28,8 +28,17 @@ function BarraLateral({ Type }) {
 					loginData);
 					const idUser = response.data.id;
 					console.log(idUser);
+          const data = {
+            id: response.data.id,
+            nome: response.data.nome,
+            email: response.data.email,
+            senha: response.data.senha,
+            receitas_favoritas: response.data.receitas_favoritas,
+          };
+          localStorage.setItem("user", JSON.stringify(data));
 					navigate(`/home/${idUser}`);
 			} catch (error) {
+        alert("Email ou senha incorretos");
 				console.error(error);
 			}
 			setEmail("");

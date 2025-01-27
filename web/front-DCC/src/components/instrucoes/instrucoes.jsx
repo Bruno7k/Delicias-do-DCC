@@ -36,6 +36,7 @@ function Instrucoes() {
           receita_id: id, // Passa o id da receita
         }
       );
+      alert("Receita favoritada com sucesso!");
       console.log("Receita favoritada com sucesso", response.data);
     } catch (error) {
       console.error("Erro ao favoritar a receita:", error);

@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import axios from "axios";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Logo from "../../assets/logoDCC.png";
 import { Link, useNavigate, useLocation, useParams } from "react-router-dom";
@@ -13,12 +14,12 @@ function NavBar() {
   const [menuClosing, setMenuClosing] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   let user = JSON.parse(localStorage.getItem("user"));
-  // const [userInfo, setUserInfo] = useState({
-  //   nome: user.nome,
-  //   email: user.email,
-  //   senha: user.senha,
-  //   receitas_favoritas: user.receitas_favoritas,
-  // });
+  const [userInfo, setUserInfo] = useState({
+    nome: user.nome,
+    email: user.email,
+    senha: user.senha,
+    receitas_favoritas: user.receitas_favoritas,
+  });
   const searchRef = useRef(null);
   const { idUser } = useParams();
 
@@ -65,7 +66,7 @@ function NavBar() {
         localStorage.setItem("user", JSON.stringify(data));
       }
     } catch (error) {
-      alert("Email ou senha incorretos");
+      alert("Insira todos os dados corretamente");
       console.error(error);
     }
 
