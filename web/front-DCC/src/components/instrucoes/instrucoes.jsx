@@ -6,7 +6,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function Instrucoes() {
-  const { id } = useParams(); // Obtém o ID da URL
+  const { id } = useParams(); // Obtém o ID da receita da URL
+  const { idUser } = useParams(); // Obtém o ID do usuário da URL
   const [receita, setReceita] = useState(null); // Estado para armazenar os dados da receita
   const [isLoading, setIsLoading] = useState(true); // Estado de carregamento
 
@@ -24,6 +25,21 @@ function Instrucoes() {
     };
     fetchReceita();
   }, [id]);
+
+  const handleFavoritar = async () => {
+    try {
+      // Faz a requisição para adicionar a receita aos favoritos do usuário
+      const response = await axios.post(
+        `http://127.0.0.1:8000/usuario/${idUser}/add-receita`,
+        {
+          receita_id: id, // Passa o id da receita
+        }
+      );
+      console.log("Receita favoritada com sucesso", response.data);
+    } catch (error) {
+      console.error("Erro ao favoritar a receita:", error);
+    }
+  };
 
   if (isLoading) {
     // Exibe um loader enquanto os dados estão sendo carregados
@@ -63,6 +79,7 @@ function Instrucoes() {
               fontFamily: "Roboto",
             }}
             variant="outlined"
+            onClick={handleFavoritar} // Chama a função quando o botão for clicado
           >
             FAVORITAR ESSA RECEITA
           </Button>

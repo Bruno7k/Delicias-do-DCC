@@ -26,9 +26,9 @@ function BarraLateral({ Type }) {
 				const response = await axios.post(
 					"http://127.0.0.1:8000/usuario/login",
 					loginData);
-					const id = response.data.id;
-					console.log(id);
-					navigate('/home');
+					const idUser = response.data.id;
+					console.log(idUser);
+					navigate(`/home/${idUser}`);
 			} catch (error) {
 				console.error(error);
 			}

@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import DetalhesReceitas from "./pages/DetalhesReceitas/DetalhesReceitas";
+import Favoritos from "./pages/favoritos/favoritos"
 
 function App() {
 	return (
@@ -12,9 +13,10 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Login />} />
-					<Route path="/home" element={<Home />} />
+					<Route path="/home/:idUser" element={<Home />} />
 					<Route path="/registro" element={<Register />} />
 					<Route path="/receitas/:id" element={<DetalhesReceitas />} />
+					<Route path="/favoritos/:idUser" element={<Favoritos />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

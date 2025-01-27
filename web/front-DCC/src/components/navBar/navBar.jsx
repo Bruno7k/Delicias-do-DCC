@@ -5,12 +5,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Logo from "../../assets/logoDCC.png";
 import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function NavBar() {
   const [searchVisible, setSearchVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [menuClosing, setMenuClosing] = useState(false);
   const searchRef = useRef(null);
+  const { idUser } = useParams();
 
   const navigate = useNavigate();  // Cria a instância do navigate
   const location = useLocation();  // Obtém a localização atual
@@ -64,21 +66,21 @@ function NavBar() {
       <div className={`texto-Nav ${menuOpen ? "visivel" : ""} ${menuClosing ? "fechar" : ""}`}>
         {/* HOME */}
         <Link
-          to="/home"
+          to={`/home/${idUser}`}
           className={location.pathname === "/home" ? "ativo" : ""}
         >
           HOME
         </Link>
         {/* RECEITAS (Considerando o caso de rota dinâmica) */}
         <Link
-          to="/receitas"
+          to="/receitas/17"
           className={location.pathname.startsWith("/receitas") ? "ativo" : ""}
         >
           RECEITAS
         </Link>
         {/* MEUS FAVORITOS */}
         <Link
-          to="/favoritos"
+           to={`/favoritos/${idUser}`}
           className={location.pathname === "/favoritos" ? "ativo" : ""}
         >
           MEUS FAVORITOS
