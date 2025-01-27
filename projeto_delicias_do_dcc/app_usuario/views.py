@@ -38,6 +38,10 @@ def usuarioDetail(request, pk):
 def usuarioCreate(request):
     email = request.data.get('email')
 
+    # Verificar se todos os campos foram fornecidos
+    if not email or not request.data.get('senha') or not request.data.get('nome'):
+        return Response("Todos os campos são obrigatórios", status=status.HTTP_400_BAD_REQUEST)
+
     # Verificar se o email já está cadastrado
     if Usuario.objects.filter(email=email).exists():
         return HttpResponse("Email já cadastrado")
@@ -89,14 +93,18 @@ def usuarioLogin(request):
     email = request.data.get('email')
     senha = request.data.get('senha')
 
+    #Verificar se o email e a senha foram fornecidos
+    if not email or not senha:
+        return Response("Email e senha são obrigatórios", status=status.HTTP_400_BAD_REQUEST)
+
     # Verificar se o email existe
     if not Usuario.objects.filter(email=email).exists():
-        return HttpResponse("Email não cadastrado")
+        raise NotFound("Email não cadastrado")
 
     # Verificar se a senha está correta
     usuario = Usuario.objects.get(email=email)
     if not check_password(senha, usuario.senha):
-        return HttpResponse("Senha incorreta")
+        return Response("Senha Incorreta", status=status.HTTP_400_BAD_REQUEST)
 
     serializer = UsuarioSerializer(usuario, many=False)
     return Response(serializer.data)
