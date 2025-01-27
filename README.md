@@ -4,6 +4,7 @@ Sistema feito para o trabalho de desenvolvimento WEB
 
 ## Tecnologias utilizadas
 
+- React 18.3.1
 - Django 5
 - Python 3.X.X
 - SqLite3
@@ -30,35 +31,26 @@ python manage.py runserver
 deactivate
 ```
 
-
-## Estrutura de diretórios
+Para Windows:
 
 ```sh
-.
-|-- core/ (back-end geral da aplicação (autenticação, página inicial, ...) )
-|   |-- *.py
-|   |-- templates/ (front-end geral da aplicação (autenticação, página inicial, ...) )
-|
-|-- corrector (back-end que envolve corretor)
-|   |-- *.py
-|   |-- templates/ (front-end que envolve corretor)
-|
-|-- docs/ (documentação geral do projeto)
-|
-|-- media/ (armazenamento de fotos por upload)
-|
-|-- redacao/ (configuração geral do projeto)
-|   |-- static/ (arquivos static (css, js, ...) )
-|   |-- settings.py
-|   |-- urls.py (urls de todo projeto)
-|   |-- wsgi.py (arquivo utilizado para deploy final com servidor http)
-|
-|-- student/ (back-end que envolve alunos)
-    |-- *.py
-    |-- templates/ (front-end que envolve alunos)
+python3 -m venv venv
+
+.\venv\Scripts\activate
+
+pip install -r requirements.txt
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py runserver
+
+deactivate
 ```
 
 ## Bibliotecas externas
 
 - Nada ainda
-
