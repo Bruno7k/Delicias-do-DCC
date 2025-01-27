@@ -14,6 +14,7 @@ function BarraLateral({ Type }) {
       emailRef.current.focus();
     }, []);
 
+<<<<<<< HEAD
     const handleLogin = async (e) => {
       e.preventDefault();
       const loginData = {
@@ -43,6 +44,29 @@ function BarraLateral({ Type }) {
       setEmail("");
       setPassword("");
     };
+=======
+		const handleLogin = async (e) => {
+			e.preventDefault();
+			const loginData = {
+				email: email,
+				senha: password,
+			};
+			const jsonData = JSON.stringify(loginData);
+			console.log(jsonData);
+			try {
+				const response = await axios.post(
+					"http://127.0.0.1:8000/usuario/login",
+					loginData);
+					const idUser = response.data.id;
+					console.log(idUser);
+					navigate(`/home/${idUser}`);
+			} catch (error) {
+				console.error(error);
+			}
+			setEmail("");
+			setPassword("");
+		};
+>>>>>>> main
 
     return (
       <form className="container" onSubmit={handleLogin}>

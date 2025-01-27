@@ -5,7 +5,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Logo from "../../assets/logoDCC.png";
-import axios from "axios";
 
 function NavBar() {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -20,6 +19,14 @@ function NavBar() {
     receitas_favoritas: user.receitas_favoritas,
   });
   const searchRef = useRef(null);
+  const { idUser } = useParams();
+
+  const navigate = useNavigate(); // Cria a instância do navigate
+  const location = useLocation(); // Obtém a localização atual
+
+  const handleLogoClick = () => {
+    navigate("/home"); // Redireciona para a página '/home' quando o logo for clicado
+  };
 
   const toggleSearch = () => {
     setSearchVisible(!searchVisible);
@@ -94,7 +101,7 @@ function NavBar() {
   return (
     <div className="Componente-navBar">
       <div className="imagem-Nav">
-        <img src={Logo} className="logo" alt="Logo" />
+        <img src={Logo} className="logo" alt="Logo" onClick={handleLogoClick} />
       </div>
 
       <div
@@ -115,24 +122,27 @@ function NavBar() {
           menuClosing ? "fechar" : ""
         }`}
       >
-        <a
-          href="/home"
-          className={window.location.pathname === "/home" ? "ativo" : ""}
+        {/* HOME */}
+        <Link
+          to={`/home/${idUser}`}
+          className={location.pathname === "/home" ? "ativo" : ""}
         >
           HOME
-        </a>
-        <a
-          href="/receitas"
-          className={window.location.pathname === "/receitas" ? "ativo" : ""}
+        </Link>
+        {/* RECEITAS (Considerando o caso de rota dinâmica) */}
+        <Link
+          to="/receitas/17"
+          className={location.pathname.startsWith("/receitas") ? "ativo" : ""}
         >
           RECEITAS
-        </a>
-        <a
-          href="/favoritos"
-          className={window.location.pathname === "/favoritos" ? "ativo" : ""}
+        </Link>
+        {/* MEUS FAVORITOS */}
+        <Link
+          to={`/favoritos/${idUser}`}
+          className={location.pathname === "/favoritos" ? "ativo" : ""}
         >
           MEUS FAVORITOS
-        </a>
+        </Link>
       </div>
 
       <div

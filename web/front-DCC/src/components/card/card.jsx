@@ -9,15 +9,25 @@ import CardActions from "@mui/material/CardActions";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-export default function cardComponent({id, image, title, description, width }) {
+export default function cardComponent({id, idUser, image, title, description, width, type }) {
 	const navigate = useNavigate();
-	const handleClick = async (receitaId) => {
+	const handleClick = async (receitaId, userId) => {
 		try {
-			const response = await axios.get(
-				`http://127.0.0.1:8000/receita/detail/${receitaId}`
-			);
-			const product = response.data;
-			navigate(`/receitas/${receitaId}`, { state: { product : product } });
+			if (type === "receita") {
+				const response = await axios.get(
+					`http://127.0.0.1:8000/usuario/${userId}/receitas-favoritas`
+				);
+				const product = response.data;
+				navigate(`/receitas/${receitaId}`, { state: { product : product } });
+				
+			} else{
+				const response = await axios.get(
+					`http://127.0.0.1:8000/receita/detail/${receitaId}`
+				);
+				const product = response.data;
+				navigate(`/receitas/${receitaId}`, { state: { product : product } });
+			}
+			
 		} catch (error) {
 			console.error(error);
 		}
@@ -76,7 +86,7 @@ export default function cardComponent({id, image, title, description, width }) {
 					size="small"
 					color="primary"
 					variant="outlined"
-					onClick={() => handleClick(id)}>
+					onClick={() => handleClick(id, idUser)}>
 					CONFIRA
 				</Button>
 			</CardActions>
