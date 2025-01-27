@@ -76,6 +76,11 @@ def usuarioUpdate(request, pk):
     serializer = UsuarioSerializer(instance=usuario, data=request.data, partial=True)
 
     if serializer.is_valid():
+        #criptografar a senha
+        senha = request.data.get('senha')
+        if senha:
+            hashed_senha = make_password(senha)
+            serializer.validated_data['senha'] = hashed_senha  # Atualiza a senha com o hash
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
