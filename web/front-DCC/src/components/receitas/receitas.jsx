@@ -5,12 +5,14 @@ import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { useMediaQuery } from "@mui/material";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 // Componente Receitas
 function Receitas() {
     const [recipes, setRecipes] = useState([]);  // Estado para armazenar as receitas
     const [loading, setLoading] = useState(true); // Estado para o carregamento
     const mobile = useMediaQuery("(max-width: 432px)");
+    const { idUser } = useParams();
 
     // Função para buscar as receitas da API
     useEffect(() => {
@@ -19,6 +21,7 @@ function Receitas() {
                 const response = await fetch("http://127.0.0.1:8000/receita/random"); // URL da API
                 const data = await response.json();
                 const recipesData = data.map(recipe => ({
+                    id: recipe.id,
                     image: recipe.url_imagem,  // Pega o campo url_imagem
                     title: recipe.titulo,      // Pega o campo titulo
                     description: recipe.descricao,  // Pega o campo descricao
@@ -74,6 +77,8 @@ function Receitas() {
                             <Grid item xs={4} sm={4} md={4} lg={4} key={index}>
                                 <div className="receita-card">
                                     <CardComponent
+                                        id = {item.id}
+                                        idUser={idUser}
                                         image={item.image}
                                         title={item.title}
                                         description={item.description}

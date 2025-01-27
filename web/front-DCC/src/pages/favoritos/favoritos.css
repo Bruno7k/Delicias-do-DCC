@@ -15,7 +15,7 @@
     justify-content: center;
     gap: 20px;
     max-width: 1312px;
-    width: 100%;
+    width: 90%;
 }
 .Favoritos-cima{
     display: flex;
@@ -53,6 +53,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
+    
     h3{
         color: #262522;
         font-family: Montserrat;
@@ -63,5 +65,32 @@
         text-align: center;
         text-underline-position: from-font;
         text-decoration-skip-ink: none;
+    }
+
+}
+@media (max-width: 911px) {
+    .Favoritos-cima{
+        flex-direction: column;
+        gap:50px;
+        h1{
+            width: 100%;
+            text-align: center;
+        }
+        p{
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+@media (max-width: 525px) {
+    .Favoritos-cima{
+        flex-direction: column;
+        gap:50px;
+        h1{
+            font-size: 40px;
+        }
+        p{
+            font-size: 16px;
+        }
     }
 }

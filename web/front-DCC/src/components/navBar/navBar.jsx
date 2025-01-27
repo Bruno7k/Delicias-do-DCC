@@ -18,7 +18,7 @@ function NavBar() {
   const location = useLocation();  // Obtém a localização atual
 
   const handleLogoClick = () => {
-    navigate("/home");  // Redireciona para a página '/home' quando o logo for clicado
+    navigate(`/home/${idUser}`);  // Redireciona para a página '/home' quando o logo for clicado
   };
 
   const toggleSearch = () => {
@@ -73,7 +73,7 @@ function NavBar() {
         </Link>
         {/* RECEITAS (Considerando o caso de rota dinâmica) */}
         <Link
-          to="/receitas/17"
+          to={`/receitas/17/${idUser}`}
           className={location.pathname.startsWith("/receitas") ? "ativo" : ""}
         >
           RECEITAS

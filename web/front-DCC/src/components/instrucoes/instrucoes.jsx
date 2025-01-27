@@ -6,10 +6,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 function Instrucoes() {
-  const { id } = useParams(); // Obtém o ID da receita da URL
-  const { idUser } = useParams(); // Obtém o ID do usuário da URL
+  const { id, idUser } = useParams(); // Obtém o ID da receita da URL
   const [receita, setReceita] = useState(null); // Estado para armazenar os dados da receita
   const [isLoading, setIsLoading] = useState(true); // Estado de carregamento
+
+  console.log(id, idUser);
 
   useEffect(() => {
     // Faz a requisição para buscar os detalhes da receita

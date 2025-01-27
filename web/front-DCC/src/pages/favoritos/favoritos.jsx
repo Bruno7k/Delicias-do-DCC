@@ -6,11 +6,13 @@ import Footer from "../../components/footer/footer";
 import Card from "../../components/card/card";
 import Grid from "@mui/material/Grid2";
 import { useParams } from "react-router-dom";
+import { useMediaQuery } from "@mui/material";
 
 function Favoritos() {
     const { idUser } = useParams(); // Captura o id do usuário da URL
     const [recipes, setRecipes] = useState([]); // Estado para armazenar as receitas favoritas
     const [loading, setLoading] = useState(true); // Estado para controle de carregamento
+    const isMobile = useMediaQuery("(max-width: 600px)"); // Verifica se a tela é mobile
 
     // Faz a requisição para buscar as receitas favoritas do usuário
     useEffect(() => {
@@ -46,7 +48,7 @@ function Favoritos() {
                     {recipes.length === 0 ? (
                         <p>Você ainda não tem receitas favoritas.</p>
                     ) : (
-                        <Grid container spacing={3}>
+                        <Grid container spacing={3} sx={{display: 'flex', justifyContent: 'center', marginTop: '40px'}} >
                             {recipes.map((item, index) => (
                                 <Grid item xs={12} sm={6} md={4} key={index}>
                                     <div className="receita-card">
@@ -56,6 +58,7 @@ function Favoritos() {
                                             title={item.titulo}
                                             description={item.descricao}
                                             type="favoritos"
+                                            width={isMobile? 300 : 427}
                                             idUser={idUser}
                                         />
                                     </div>

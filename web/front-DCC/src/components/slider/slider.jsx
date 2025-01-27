@@ -7,6 +7,7 @@ import "./slider.css";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useMediaQuery } from "@mui/material";
+import { useParams } from "react-router-dom";
 
 // Custom Arrow component
 const CustomArrow = ({ className, style, onClick, isNext }) => (
@@ -22,6 +23,7 @@ function MultipleItems() {
   const [recipes, setRecipes] = useState([]);  // State to hold fetched recipes
   const [loading, setLoading] = useState(true);  // State to show loading state
   const isMobile = useMediaQuery("(max-width: 768px)");
+  const { idUser } = useParams();
 
   // Fetch recipes from backend
   useEffect(() => {
@@ -70,6 +72,7 @@ function MultipleItems() {
             <div className="card-container" key={index}>
               <CardComponent
                 id = {item.id}
+                idUser = {idUser}
                 image={item.image}
                 title={item.title}
                 description={item.description}

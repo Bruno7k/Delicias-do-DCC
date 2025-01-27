@@ -6,8 +6,10 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import Divider from '@mui/joy/Divider';
 import "./footer.css";
 import { useMediaQuery } from "@mui/material";
+import { useParams } from "react-router-dom";
 function Footer() {
     const isMobile = useMediaQuery("(max-width: 768px)");
+    const { id, idUser } = useParams();
     return(
         <div className="footer">
             <div className="footer-cima">
@@ -15,11 +17,11 @@ function Footer() {
                     <img className="logo" src={logo} alt="Logo" />
                 </div>
                 <div className="footer-links">
-                    <a href="/home"> HOME </a>
+                    <a href={`/home/${idUser}`}> HOME </a>
                     <Divider orientation= {isMobile ? "horizontal" : "vertical"} sx={{ backgroundColor: "#74726e"}} />
-                    <a href="/receitas"> RECEITAS </a>
+                    <a href={`/receitas/17/${idUser}`}> RECEITAS </a>
                     <Divider orientation={isMobile ? "horizontal" : "vertical"} sx={{ backgroundColor: "#74726e"}}/>
-                    <a href="/favoritos"> MEUS FAVORITOS </a>
+                    <a href={`/favoritos/${idUser}`}> MEUS FAVORITOS </a>
                     <Divider orientation="horizontal" sx={{display: isMobile ? "" : "none", backgroundColor: "#74726e"}}/>
                 </div>
                 <div className="footer-redes">

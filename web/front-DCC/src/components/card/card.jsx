@@ -18,14 +18,14 @@ export default function cardComponent({id, idUser, image, title, description, wi
 					`http://127.0.0.1:8000/usuario/${userId}/receitas-favoritas`
 				);
 				const product = response.data;
-				navigate(`/receitas/${receitaId}`, { state: { product : product } });
+				navigate(`/receitas/${receitaId}/${userId}`, { state: { product : product } });
 				
 			} else{
 				const response = await axios.get(
 					`http://127.0.0.1:8000/receita/detail/${receitaId}`
 				);
 				const product = response.data;
-				navigate(`/receitas/${receitaId}`, { state: { product : product } });
+				navigate(`/receitas/${receitaId}/${userId}`, { state: { product : product } });
 			}
 			
 		} catch (error) {

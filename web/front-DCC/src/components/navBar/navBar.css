@@ -20,6 +20,7 @@
 .imagem-Nav {
   height: 45px;
   width: 140px;
+  cursor: pointer;
 }
 
 .logo {
