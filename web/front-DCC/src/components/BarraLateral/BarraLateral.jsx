@@ -14,37 +14,6 @@ function BarraLateral({ Type }) {
       emailRef.current.focus();
     }, []);
 
-<<<<<<< HEAD
-    const handleLogin = async (e) => {
-      e.preventDefault();
-      const loginData = {
-        email: email,
-        senha: password,
-      };
-      const jsonData = JSON.stringify(loginData);
-      console.log(jsonData);
-      try {
-        const response = await axios.post(
-          "http://127.0.0.1:8000/usuario/login",
-          loginData
-        );
-        const data = {
-          id: response.data.id,
-          nome: response.data.nome,
-          email: response.data.email,
-          senha: response.data.senha,
-          receitas_favoritas: response.data.receitas_favoritas,
-        };
-        localStorage.setItem("user", JSON.stringify(data));
-        navigate("/home");
-      } catch (error) {
-        alert("Email ou senha incorretos");
-        console.error(error);
-      }
-      setEmail("");
-      setPassword("");
-    };
-=======
 		const handleLogin = async (e) => {
 			e.preventDefault();
 			const loginData = {
@@ -66,7 +35,6 @@ function BarraLateral({ Type }) {
 			setEmail("");
 			setPassword("");
 		};
->>>>>>> main
 
     return (
       <form className="container" onSubmit={handleLogin}>

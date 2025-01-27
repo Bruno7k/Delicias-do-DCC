@@ -13,12 +13,12 @@ function NavBar() {
   const [menuClosing, setMenuClosing] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   let user = JSON.parse(localStorage.getItem("user"));
-  const [userInfo, setUserInfo] = useState({
-    nome: user.nome,
-    email: user.email,
-    senha: user.senha,
-    receitas_favoritas: user.receitas_favoritas,
-  });
+  // const [userInfo, setUserInfo] = useState({
+  //   nome: user.nome,
+  //   email: user.email,
+  //   senha: user.senha,
+  //   receitas_favoritas: user.receitas_favoritas,
+  // });
   const searchRef = useRef(null);
   const { idUser } = useParams();
 
