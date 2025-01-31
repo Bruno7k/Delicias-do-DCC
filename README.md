@@ -8,10 +8,11 @@ Sistema feito para o trabalho de desenvolvimento WEB
 - Django 5
 - Python 3.X.X
 - SqLite3
+- Node v20.17
 
 ## Instalação
 
-Para Mac Os:
+Django para Mac Os:
 
 ```sh
 python3 -m venv venv
@@ -31,7 +32,7 @@ python manage.py runserver
 deactivate
 ```
 
-Para Windows:
+Django para Windows:
 
 ```sh
 python3 -m venv venv
@@ -49,6 +50,15 @@ python manage.py createsuperuser
 python manage.py runserver
 
 deactivate
+```
+React para Windows e MacOS:
+
+Instale o Node: [Link](https://nodejs.org/pt)
+
+```sh
+npm install
+
+npm run dev
 ```
 
 ## Bibliotecas externas
